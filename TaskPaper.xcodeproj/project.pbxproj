@@ -1313,7 +1313,6 @@
 			);
 			dependencies = (
 				43402AB61D69F841001F6A2B /* PBXTargetDependency */,
-				4316800E1D8ADD2600FF919B /* PBXTargetDependency */,
 			);
 			name = TaskPaperTests;
 			productName = TaskPaperTests;
@@ -2456,6 +2455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.TaskPaper3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
 				SWIFT_OBJC_BRIDGING_HEADER = "TaskPaper/Bridging-Header.h";
@@ -2518,6 +2518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.TaskPaper3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
 				SWIFT_OBJC_BRIDGING_HEADER = "TaskPaper/Bridging-Header.h";
@@ -2572,7 +2573,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.TaskPaperTests;
@@ -2624,7 +2625,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.TaskPaperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

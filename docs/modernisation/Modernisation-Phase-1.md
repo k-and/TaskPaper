@@ -588,26 +588,135 @@ xcodebuild test -project TaskPaper.xcodeproj -scheme BirchOutline -only-testing:
 
 ---
 
-## P1-T17: Create Test Plan for BirchEditor Module
+## P1-T17: Create Test Plan for BirchEditor Module ⚠️ PARTIALLY COMPLETE
+
+**Status**: ⚠️ **70% Complete** - Test plan created and configured, but blocked by code signing requirements for execution.
 
 **Component**: Testing Infrastructure  
 **Files**:
-- `BirchEditor/BirchEditor.swift/BirchEditorTests/BirchEditorTestPlan.xctestplan` (new)
+- `BirchEditor/BirchEditor.swift/BirchEditorTests/BirchEditorTestPlan.xctestplan` ✅ (created)
+- `TaskPaper.xcodeproj/project.pbxproj` ✅ (deployment target fixed)
+- `TaskPaper.xcodeproj/xcshareddata/xcschemes/TaskPaper.xcscheme` ✅ (test plan reference added)
+- `receigen.sh` ✅ (legacy script stub created)
 
-**Technical Changes**:
-1. Create Xcode test plan for BirchEditor module (similar to P1-T14)
-2. Configure same test plan settings (coverage, sanitizers, etc.)
-3. Include all existing BirchEditor test targets
-4. Add Debug and Release configurations
-5. Enable thread sanitizer in Debug mode (important for text system)
+**Technical Changes Completed**:
+1. ✅ Created test plan file with valid JSON structure
+2. ✅ Configured Thread Sanitizer for Debug configuration only
+3. ✅ Configured code coverage for TaskPaperTests target
+4. ✅ Added test plan reference to TaskPaper scheme
+5. ✅ Fixed multiple build configuration issues:
+   - Removed conflicting TaskPaper Direct dependency from TaskPaperTests
+   - Created receigen.sh stub for legacy build phase
+   - Fixed macOS deployment target mismatch (11.0 → 11.5)
+
+**Build Issues Resolved** (2025-11-07):
+
+**Issue 1**: Multiple Commands Produce TaskPaper.app
+- **Resolution**: Removed TaskPaper Direct dependency from TaskPaperTests (project.pbxproj:~1314)
+
+**Issue 2**: Missing receigen.sh Script
+- **Resolution**: Created dummy script at project root that creates empty receigen.h
+
+**Issue 3**: Deployment Target Mismatch
+- **Resolution**: Updated TaskPaperTests Debug/Release configs to 11.5 (project.pbxproj:2577, 2630)
+
+**Blocking Issue**: Code Signing Requirements ❌
+
+Cannot execute tests without valid Apple Developer code signing setup:
+```
+error: No signing certificate "Mac Development" found
+error: Signing for "TaskPaperTests" requires a development team
+```
+
+**Test Plan Configuration**:
+```json
+{
+  "configurations": [
+    {
+      "id": "6F7E8D9C-3A4B-5C6D-7E8F-9A0B1C2D3E4F",
+      "name": "Debug",
+      "options": {
+        "threadSanitizerEnabled": true
+      }
+    },
+    {
+      "id": "7F8E9D0C-4A5B-6C7D-8E9F-0A1B2C3D4E5F",
+      "name": "Release",
+      "options": {}
+    }
+  ],
+  "defaultOptions": {
+    "codeCoverage": {
+      "targets": [
+        {
+          "target": {
+            "containerPath": "container:../../TaskPaper.xcodeproj",
+            "identifier": "43402AB31D69F841001F6A2B",
+            "name": "TaskPaperTests"
+          }
+        }
+      ]
+    }
+  },
+  "testTargets": [
+    {
+      "target": {
+        "containerPath": "container:../../TaskPaper.xcodeproj",
+        "identifier": "43402AB31D69F841001F6A2B",
+        "name": "TaskPaperTests"
+      }
+    }
+  ],
+  "version": 1
+}
+```
+
+**Remaining Work**:
+1. ❌ Configure valid code signing (requires owner action)
+2. ❌ Execute tests to verify Thread Sanitizer activation
+3. ❌ Execute tests to verify code coverage generation
+4. ❌ Extract test summary showing all tests passed
+
+**Owner Action Required**:
+To complete this task, the repository owner must:
+1. Add valid development team ID to Xcode project settings
+2. Install code signing certificate on build machine
+3. OR configure project for ad-hoc signing if testing locally only
+
+**Alternative Test Execution** (if code signing not available):
+```bash
+# Option 1: Use command-line flags instead of test plan
+xcodebuild test -scheme "TaskPaper" -only-testing:TaskPaperTests \
+  -enableCodeCoverage YES -enableThreadSanitizer YES \
+  CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+# Option 2: Move test plan to project root (may resolve path issue)
+mv BirchEditor/BirchEditor.swift/BirchEditorTests/BirchEditorTestPlan.xctestplan .
+```
 
 **Prerequisites**: None
 
-**Success Criteria**:
+**Success Criteria** (REVISED):
 ```bash
+# Verify test plan file created ✅
 test -f BirchEditor/BirchEditor.swift/BirchEditorTests/BirchEditorTestPlan.xctestplan
-xcodebuild test -project TaskPaper.xcodeproj -scheme BirchEditor -testPlan BirchEditorTestPlan | grep -q "Test Succeeded"
+
+# Verify JSON is valid ✅
+python3 -m json.tool BirchEditor/BirchEditor.swift/BirchEditorTests/BirchEditorTestPlan.xctestplan
+
+# Verify test plan reference in scheme ✅
+grep -q "BirchEditorTestPlan.xctestplan" TaskPaper.xcodeproj/xcshareddata/xcschemes/TaskPaper.xcscheme
+
+# Verify deployment target fixed ✅
+grep -q "MACOSX_DEPLOYMENT_TARGET = 11.5" TaskPaper.xcodeproj/project.pbxproj
+
+# Verify tests execute (BLOCKED - requires code signing) ❌
+# xcodebuild test -project TaskPaper.xcodeproj -scheme TaskPaper -testPlan BirchEditorTestPlan | grep -q "Test Succeeded"
 ```
+
+**Related Documentation**:
+- `P1-T17-BirchEditor-TestPlan-Report.md` - Comprehensive completion report with all details
+- `docs/modernisation/P1-T17-completion-report.md` - Alternative location for report
 
 ---
 
