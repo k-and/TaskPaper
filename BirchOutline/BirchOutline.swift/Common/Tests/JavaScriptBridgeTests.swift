@@ -60,7 +60,7 @@ class JavaScriptBridgeTests: XCTestCase {
         let numberResult = testContext.evaluateScript("42")
         XCTAssertNotNil(numberResult, "Number evaluation should return a result")
         XCTAssertEqual(numberResult!.toInt32(), 42, "JavaScript number should bridge to Int32 with value 42")
-        XCTAssertEqual(numberResult!.toNumber() as? NSNumber, NSNumber(value: 42), "JavaScript number should bridge to NSNumber")
+        XCTAssertEqual(numberResult!.toNumber(), NSNumber(value: 42), "JavaScript number should bridge to NSNumber")
         
         // Test boolean bridging - true
         let boolTrueResult = testContext.evaluateScript("true")
@@ -84,7 +84,7 @@ class JavaScriptBridgeTests: XCTestCase {
         XCTAssertEqual(swiftArray[2], 3, "Third element should be 3")
         
         // Test object bridging
-        let objectResult = testContext.evaluateScript("{key: \"value\"}")
+        let objectResult = testContext.evaluateScript("({key: \"value\"})")
         XCTAssertNotNil(objectResult, "Object evaluation should return a result")
         XCTAssertTrue(objectResult!.isObject, "Result should be recognized as an object")
         
@@ -93,7 +93,7 @@ class JavaScriptBridgeTests: XCTestCase {
         XCTAssertEqual(swiftDict["key"], "value", "Dictionary should contain correct key-value pair")
         
         // Test nested object bridging
-        let nestedResult = testContext.evaluateScript("{numbers: [1, 2], text: \"hello\", flag: true}")
+        let nestedResult = testContext.evaluateScript("({numbers: [1, 2], text: \"hello\", flag: true})")
         XCTAssertNotNil(nestedResult, "Nested object evaluation should return a result")
         
         let nestedDict = nestedResult!.toDictionary()!
@@ -211,7 +211,7 @@ class JavaScriptBridgeTests: XCTestCase {
         XCTAssertNotNil(caughtException, "Syntax error exception should have been captured")
         
         // Verify exception contains error information
-        let exceptionString = caughtException!.toString()
+        let exceptionString = caughtException!.toString()!
         XCTAssertFalse(exceptionString.isEmpty, "Exception should contain error message")
         
         // Reset for next test
