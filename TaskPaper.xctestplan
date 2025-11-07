@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "02305C59-6649-401E-BD59-EEB9526B9CFD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TaskPaper.xcodeproj",
+      "identifier" : "43402AA01D69F841001F6A2B",
+      "name" : "TaskPaper"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:BirchOutline\/BirchOutline.swift\/BirchOutline.xcodeproj",
+        "identifier" : "436C0D791D1D56D50089FA7A",
+        "name" : "BirchOutlineTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:TaskPaper.xcodeproj",
+        "identifier" : "43402AB31D69F841001F6A2B",
+        "name" : "TaskPaperTests"
+      }
+    }
+  ],
+  "version" : 1
+}

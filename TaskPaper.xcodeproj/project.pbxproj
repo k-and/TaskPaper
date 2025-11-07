@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AFCA87F2EBE4CDF0034E521 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 435F931D2AB38C0500A3ECE1 /* Sparkle */; };
+		0AFCA8802EBE4CDF0034E521 /* Paddle in Frameworks */ = {isa = PBXBuildFile; productRef = 430B1D6A13FD1C4D9087474F /* Paddle */; };
+		0AFCA8812EBE4CDF0034E521 /* Paddle in Frameworks */ = {isa = PBXBuildFile; productRef = 430B1D6A13FD1C4D9087474F /* Paddle */; };
+		0AFCA8822EBE4CDF0034E521 /* Paddle in Frameworks */ = {isa = PBXBuildFile; productRef = 430B1D6A13FD1C4D9087474F /* Paddle */; };
 		4315A2B1219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315A2B0219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m */; };
 		4315A2B2219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315A2B0219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m */; };
 		4315A2B3219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315A2B0219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m */; };
@@ -24,8 +28,8 @@
 		431714011DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431714001DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift */; };
 		431714021DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431714001DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift */; };
 		431714031DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431714001DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift */; };
-		431A482921401B760044E755 /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 431A482821401B760044E755 /* Paddle.framework */; };
-		431A482B21401B9A0044E755 /* Paddle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 431A482821401B760044E755 /* Paddle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		431A482921401B760044E755 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		431A482B21401B9A0044E755 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		431AB80E1DC12C550039E092 /* RemindersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AB80D1DC12C550039E092 /* RemindersStore.swift */; };
 		431AB80F1DC12C550039E092 /* RemindersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AB80D1DC12C550039E092 /* RemindersStore.swift */; };
 		431AB8101DC12C550039E092 /* RemindersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431AB80D1DC12C550039E092 /* RemindersStore.swift */; };
@@ -548,7 +552,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				43B6AE351D6CE91600ACA66C /* BirchOutline.framework in Embed Frameworks */,
-				431A482B21401B9A0044E755 /* Paddle.framework in Embed Frameworks */,
+				431A482B21401B9A0044E755 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +560,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0AFCA8832EBE4E870034E521 /* TaskPaper.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = TaskPaper.xctestplan; sourceTree = "<group>"; };
 		4315A2AF219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextView-AccessibilityPerformanceHacks.h"; sourceTree = "<group>"; };
 		4315A2B0219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextView-AccessibilityPerformanceHacks.m"; sourceTree = "<group>"; };
 		4315A2C021A0965000348175 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
@@ -749,6 +754,7 @@
 			files = (
 				433816451DB93DB900120078 /* BirchOutline.framework in Frameworks */,
 				436A953929D1D3F300A2EA5C /* Setapp in Frameworks */,
+				0AFCA8822EBE4CDF0034E521 /* Paddle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +762,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFCA8802EBE4CDF0034E521 /* Paddle in Frameworks */,
+				0AFCA87F2EBE4CDF0034E521 /* Sparkle in Frameworks */,
 				43402ADF1D69F984001F6A2B /* BirchOutline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -771,8 +779,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFCA8812EBE4CDF0034E521 /* Paddle in Frameworks */,
 				435F931E2AB38C0500A3ECE1 /* Sparkle in Frameworks */,
-				431A482921401B760044E755 /* Paddle.framework in Frameworks */,
+				431A482921401B760044E755 /* (null) in Frameworks */,
 				43B6AE331D6CE91600ACA66C /* BirchOutline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,6 +867,7 @@
 		43402A961D69F80F001F6A2B = {
 			isa = PBXGroup;
 			children = (
+				0AFCA8832EBE4E870034E521 /* TaskPaper.xctestplan */,
 				43402C4C1D6A43AA001F6A2B /* README.md */,
 				43192D082A87B8DB00FF7AA8 /* LICENSE.md */,
 				4315A2C021A0965000348175 /* build.sh */,
@@ -1141,7 +1151,6 @@
 		43402C141D6A2B18001F6A2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				431A482821401B760044E755 /* Paddle.framework */,
 			);
 			name = Frameworks;
 			path = TaskPaper;
@@ -2207,8 +2216,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2277,8 +2285,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "SETAPP=1";
@@ -2422,8 +2429,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2488,8 +2494,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
@@ -2543,8 +2548,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2602,8 +2606,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2661,8 +2664,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2734,8 +2736,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2822,6 +2823,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PaddleHQ/Mac-Framework-V4";
+			requirement = {
+				kind = exactVersion;
+				version = 4.4.3;
+			};
+		};
 		435F93182AB38B0000A3ECE1 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -2838,17 +2847,14 @@
 				minimumVersion = 3.4.0;
 			};
 		};
-		430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/PaddleHQ/Mac-Framework-V4";
-			requirement = {
-				kind = exactVersion;
-				version = 4.4.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		430B1D6A13FD1C4D9087474F /* Paddle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */;
+			productName = Paddle;
+		};
 		435F931D2AB38C0500A3ECE1 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 435F93182AB38B0000A3ECE1 /* XCRemoteSwiftPackageReference "Sparkle" */;
@@ -2858,11 +2864,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 436A953029D1D25E00A2EA5C /* XCRemoteSwiftPackageReference "Setapp-framework" */;
 			productName = Setapp;
-		};
-		430B1D6A13FD1C4D9087474F /* Paddle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */;
-			productName = Paddle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
