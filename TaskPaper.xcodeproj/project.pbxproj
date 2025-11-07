@@ -560,7 +560,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0AFCA8832EBE4E870034E521 /* TaskPaper.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = TaskPaper.xctestplan; sourceTree = "<group>"; };
+		0A994A0E2EBEA420002E29A9 /* BirchEditorTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = BirchEditorTestPlan.xctestplan; path = BirchEditor/BirchEditor.swift/BirchEditorTests/BirchEditorTestPlan.xctestplan; sourceTree = "<group>"; };
+		0AFCA8832EBE4E870034E521 /* TaskPaper.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TaskPaper.xctestplan; sourceTree = "<group>"; };
 		4315A2AF219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextView-AccessibilityPerformanceHacks.h"; sourceTree = "<group>"; };
 		4315A2B0219CADFB00348175 /* NSTextView-AccessibilityPerformanceHacks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextView-AccessibilityPerformanceHacks.m"; sourceTree = "<group>"; };
 		4315A2C021A0965000348175 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
@@ -867,6 +868,7 @@
 		43402A961D69F80F001F6A2B = {
 			isa = PBXGroup;
 			children = (
+				0A994A0E2EBEA420002E29A9 /* BirchEditorTestPlan.xctestplan */,
 				0AFCA8832EBE4E870034E521 /* TaskPaper.xctestplan */,
 				43402C4C1D6A43AA001F6A2B /* README.md */,
 				43192D082A87B8DB00FF7AA8 /* LICENSE.md */,

@@ -4,7 +4,8 @@
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43402AA01D69F841001F6A2B"
-               BuildableName = "TaskPaper.app"
-               BlueprintName = "TaskPaper"
-               ReferencedContainer = "container:TaskPaper.xcodeproj">
+               BlueprintIdentifier = "436C0D6F1D1D56D50089FA7A"
+               BuildableName = "BirchOutline.framework"
+               BlueprintName = "BirchOutline"
+               ReferencedContainer = "container:BirchOutline.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,13 +27,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:TaskPaper.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -41,7 +37,7 @@
                BlueprintIdentifier = "43402AB31D69F841001F6A2B"
                BuildableName = "TaskPaperTests.xctest"
                BlueprintName = "TaskPaperTests"
-               ReferencedContainer = "container:TaskPaper.xcodeproj">
+               ReferencedContainer = "container:../../../TaskPaper.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,16 +52,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43402AA01D69F841001F6A2B"
-            BuildableName = "TaskPaper.app"
-            BlueprintName = "TaskPaper"
-            ReferencedContainer = "container:TaskPaper.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -73,16 +59,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43402AA01D69F841001F6A2B"
-            BuildableName = "TaskPaper.app"
-            BlueprintName = "TaskPaper"
-            ReferencedContainer = "container:TaskPaper.xcodeproj">
+            BlueprintIdentifier = "436C0D6F1D1D56D50089FA7A"
+            BuildableName = "BirchOutline.framework"
+            BlueprintName = "BirchOutline"
+            ReferencedContainer = "container:BirchOutline.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

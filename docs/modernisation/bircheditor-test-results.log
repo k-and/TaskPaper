@@ -1,0 +1,14 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project BirchOutline/BirchOutline.swift/BirchOutline.xcodeproj -scheme BirchEditor -configuration Debug -derivedDataPath ./DerivedData -enableCodeCoverage YES -enableThreadSanitizer YES CODE_SIGN_IDENTITY= CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+Build settings from command line:
+    CODE_SIGN_IDENTITY = 
+    CODE_SIGNING_ALLOWED = NO
+    CODE_SIGNING_REQUIRED = NO
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00006020-001071491A20C01E, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00006020-001071491A20C01E, name:My Mac }
+{ platform:macOS, name:Any Mac }
+2025-11-07 22:15:05.231 xcodebuild[88933:23104967] Writing error result bundle to /var/folders/g8/4l9m18d52vg48cwmv_h226q80000gn/T/ResultBundle_2025-07-11_22-15-0005.xcresult
+xcodebuild: error: Failed to build project BirchOutline with scheme BirchEditor.: There are no test bundles available to test.
