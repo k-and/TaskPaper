@@ -76,7 +76,6 @@ public protocol OutlineEditorType: AnyObject, StylesheetHolder {
     func createPasteboardItem(_ item: ItemType) -> NSPasteboardItem
 }
 
-@MainActor
 public protocol OutlineEditorHolderType {
     var outlineEditor: OutlineEditorType? { get set }
 }

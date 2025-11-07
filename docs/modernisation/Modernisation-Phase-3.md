@@ -1,5 +1,13 @@
 # Phase 3: UI Modernization (3-6 months)
 
+## ⚠️ Phase 2 Timeline Impact
+
+**Note**: Phase 2 timeline has been extended from 2-3 months to **3-4 months** due to the addition of comprehensive Swift 6 migration (deferred from Phase 1 task P1-T12). This may impact Phase 3 start date by 1 month. See `Modernisation-Phase-2.md` for details on the Swift 6 migration scope.
+
+**Dependencies**: Phase 3 benefits from Phase 2's Swift 6 migration completion, as actor isolation and proper concurrency will reduce UI threading issues and improve SwiftUI/AppKit interop safety.
+
+---
+
 ## Phase Overview
 
 Phase 3 focuses on modernizing the user interface layer by gradually introducing SwiftUI for appropriate components, migrating to Apple's modern text system (TextKit 2), and adding contemporary macOS features that enhance user experience. This phase adopts an incremental approach to UI modernization, starting with simpler UI components (preferences, palettes, search) before considering the complex editor view, migrating the custom NSTextView-based editor to TextKit 2 for improved performance and reduced custom code, and implementing modern macOS features like Touch Bar support and enhanced system integration. The objectives are to reduce reliance on legacy AppKit patterns by introducing SwiftUI where beneficial, improve text rendering performance and maintainability through TextKit 2, enhance user experience with native macOS features, and maintain stability by preserving the editor's core functionality during migration. Expected outcomes include hybrid AppKit/SwiftUI architecture with clear boundaries, significantly reduced custom text system code through TextKit 2 adoption, improved performance in text rendering and layout, and enhanced platform integration with native macOS features.

@@ -1,5 +1,13 @@
 # Phase 4: Deep Architecture Evolution (6-12 months)
 
+## ⚠️ Phase 2 Timeline Impact
+
+**Note**: Phase 2 timeline has been extended from 2-3 months to **3-4 months** due to the addition of comprehensive Swift 6 migration (deferred from Phase 1 task P1-T12). This may impact Phase 4 start date. The cumulative timeline shift through Phases 2-3 could delay Phase 4 by 1-2 months. See `Modernisation-Phase-2.md` for Swift 6 migration details.
+
+**Dependencies**: Phase 4's JavaScript bridge analysis directly benefits from Phase 2's Swift 6 completion, as the JavaScriptCore non-Sendable constraint (89 usages) was a major blocker during the Phase 1 Swift 6 attempt. Understanding Swift Concurrency limitations with JavaScriptCore will inform Phase 4 migration decisions.
+
+---
+
 ## Phase Overview
 
 Phase 4 represents the most ambitious and transformative phase, addressing fundamental architectural decisions that have defined TaskPaper since its inception. This long-term phase focuses on evaluating and potentially replacing the JavaScript bridge architecture, further deepening SwiftUI adoption where appropriate, implementing Combine for reactive data flow, and establishing cloud synchronization capabilities. The objectives are to assess the viability of replacing the JavaScript model layer with pure Swift implementation, integrate Combine framework for reactive bindings and state management, expand SwiftUI usage based on Phase 3 learnings, and implement optional iCloud sync for document synchronization. Expected outcomes include significantly simplified architecture through potential JavaScript elimination, improved performance and debuggability from native Swift implementation, modern reactive patterns throughout the codebase, and enhanced user experience through cloud synchronization. This phase requires careful planning and may span multiple major releases.

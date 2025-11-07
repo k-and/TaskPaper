@@ -21,7 +21,6 @@ extension NSView {
     }
 }
 
-@MainActor
 class SearchBarViewController: NSViewController, OutlineEditorHolderType, StylesheetHolder {
 
     @IBOutlet var titleBarConstraint: NSLayoutConstraint!

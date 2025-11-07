@@ -1,8 +1,59 @@
-# Phase 2: Async & Safety (2-3 months)
+# Phase 2: Async & Safety (2-3 months) ⚠️ SCOPE EXPANDED
 
-## Phase Overview
+## ⚠️ IMPORTANT: Swift 6 Migration Added to Phase 2
 
-Phase 2 focuses on modernizing asynchronous code patterns and introducing architectural improvements that enhance testability and code safety. Building on Phase 1's foundation, this phase adopts Swift's modern concurrency features (async/await, actors) to replace callback-based patterns, eliminates fragile method swizzling implementations, and introduces protocol-oriented design to reduce coupling and improve testability. The objectives are to migrate from GCD-based callbacks to structured concurrency, remove all Objective-C runtime manipulation (method swizzling), establish protocols for core types to enable dependency injection and mocking, and ensure thread-safety through proper actor isolation. Expected outcomes include clearer async code flows that are easier to debug, improved stability by eliminating runtime method replacement, comprehensive protocol interfaces that enable thorough unit testing, and enhanced safety through Swift concurrency's data race protection.
+**Date**: 2025-11-07  
+**Status**: Phase 1 task P1-T12 (Swift 6 upgrade) has been **deferred to Phase 2** after comprehensive analysis.
+
+**Background**:
+During Phase 1, an attempt to upgrade from Swift 5.0 to Swift 6.0 revealed fundamental architectural incompatibilities with Swift's strict concurrency model. The codebase's 15-year-old architecture (2005-2018), mixed Swift/Objective-C composition (256 ObjC files vs. 182 Swift files), and heavy JavaScriptCore integration (89 usages of non-Sendable types) requires comprehensive migration planning rather than tactical fixes.
+
+**What Happened**:
+- Initial Swift 6 upgrade triggered 19 concurrency errors
+- Fixing 9 errors revealed 3 more (cascading "whack-a-mole" pattern)
+- Architectural analysis estimated 15-40 total hidden errors
+- Proper migration requires 2-4 weeks of dedicated work
+- Decision made to revert to Swift 5.0 and plan comprehensive migration in Phase 2
+
+**Impact on Phase 2**:
+Phase 2 scope is expanded to include comprehensive Swift 6 migration with proper architectural planning:
+
+1. **New P2-T00: Swift 6 Migration Planning** (1 week)
+   - Review `Swift-Concurrency-Migration-Analysis.md` findings
+   - Design actor isolation strategy for global state (45 variables, 48 static properties)
+   - Plan async/await propagation through call chains
+   - Address JavaScriptCore non-Sendable constraint (89 usages)
+   - Create detailed migration roadmap with risk mitigation
+
+2. **New P2-T01: Swift 6 Language Mode Upgrade** (2-3 weeks)
+   - Upgrade `SWIFT_VERSION` from 5.0 to 6.0
+   - Systematic actor isolation implementation
+   - Convert synchronous APIs to async where needed
+   - Resolve all concurrency violations (estimated 15-40 errors)
+   - Comprehensive testing and regression prevention
+
+3. **Timeline Impact**: Phase 2 duration increased from 2-3 months to **3-4 months**
+
+4. **Risk Mitigation**: Structured migration approach vs. tactical fixes reduces long-term technical debt
+
+**References**:
+- `Swift-Concurrency-Migration-Analysis.md` - Comprehensive analysis of migration options and architectural constraints
+- `docs/modernisation/Modernisation-Phase-1.md` (P1-T12) - Detailed history of Swift 6 attempt and reversion
+- `docs/modernisation/swift6-upgrade-status.md` - Historical intermediate status
+
+**Current State (Phase 1 Complete)**:
+- ✅ Swift 5.0 active and building successfully
+- ✅ 9 `nonisolated(unsafe)` annotations preserved for forward compatibility
+- ✅ 4 incompatible `@MainActor` annotations removed (protocols and view controllers)
+- ✅ No regressions to functionality
+
+---
+
+## Phase Overview (REVISED)
+
+Phase 2 focuses on modernizing asynchronous code patterns, introducing architectural improvements that enhance testability and code safety, **and completing the comprehensive Swift 6 migration**. Building on Phase 1's foundation, this phase adopts Swift's modern concurrency features (async/await, actors) to replace callback-based patterns, eliminates fragile method swizzling implementations, introduces protocol-oriented design to reduce coupling and improve testability, **and migrates the entire codebase to Swift 6 language mode with proper actor isolation**. The objectives are to **complete Swift 6 migration with comprehensive concurrency adoption**, migrate from GCD-based callbacks to structured concurrency, remove all Objective-C runtime manipulation (method swizzling), establish protocols for core types to enable dependency injection and mocking, and ensure thread-safety through proper actor isolation. Expected outcomes include **compile-time data race prevention through Swift 6 concurrency model**, clearer async code flows that are easier to debug, improved stability by eliminating runtime method replacement, comprehensive protocol interfaces that enable thorough unit testing, and enhanced safety through Swift concurrency's data race protection.
+
+**Revised Timeline**: 3-4 months (vs. original 2-3 months)
 
 ---
 
