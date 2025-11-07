@@ -12,9 +12,9 @@ import JavaScriptCore
 typealias Command = (command: String, displayName: String)
 
 class Commands: NSObject {
-    static let jsCommands = BirchOutline.sharedContext.jsBirchCommands
-    static var scriptCommandsDisposables: [DisposableType]?
-    static var scriptsFolderMonitor: PathMonitor?
+    nonisolated(unsafe) static let jsCommands = BirchOutline.sharedContext.jsBirchCommands
+    nonisolated(unsafe) static var scriptCommandsDisposables: [DisposableType]?
+    nonisolated(unsafe) static var scriptsFolderMonitor: PathMonitor?
 
     static func add(_ target: String, commandName: String, callback: @escaping () -> Void) -> DisposableType {
         let callbackWrapper: @convention(block) () -> Void = {

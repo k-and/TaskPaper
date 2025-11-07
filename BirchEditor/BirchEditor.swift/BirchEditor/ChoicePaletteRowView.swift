@@ -1,6 +1,6 @@
 import Cocoa
 
-let sharedTableRowView = NSTableRowView()
+nonisolated(unsafe) let sharedTableRowView = NSTableRowView()
 
 class ChoicePaletteRowView: NSTableRowView {
     

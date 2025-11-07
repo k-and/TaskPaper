@@ -412,6 +412,7 @@ func paragraphStyleFromJSStyle(_ jsStyle: [String: Any]) -> NSParagraphStyle? {
     return paragraphStyle
 }
 
+@MainActor
 public protocol StylesheetHolder {
     var styleSheet: StyleSheet? { get set }
 }

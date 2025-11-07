@@ -8,8 +8,8 @@
 
 import Foundation
 
-var TabbedWindowsKey = "tabbedWindows"
-var tabbedWindowsContext = malloc(1)!
+nonisolated(unsafe) var TabbedWindowsKey = "tabbedWindows"
+nonisolated(unsafe) var tabbedWindowsContext = malloc(1)!
 
 extension Notification.Name {
     static let isTabbedWindowDidChange = Notification.Name("isTabbedWindowDidChange")
