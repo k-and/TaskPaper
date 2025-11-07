@@ -33,9 +33,20 @@ TaskPaper's code is spread across a few different projects:
 
 These instructions work for me, but there could very well be system dependencies that I've not accounting for. Let me know if they don't work for you and I'll add extra notes.
 
-### Update Dependencies
+### Dependencies
 
-carthage update
+TaskPaper uses Swift Package Manager for dependency management. Dependencies are automatically resolved when opening `TaskPaper.xcodeproj` in Xcode 13.0 or later.
+
+**Main Dependencies:**
+- **Sparkle** (automatic updates) - https://github.com/sparkle-project/Sparkle
+- **Paddle** (licensing framework) - https://github.com/PaddleHQ/Mac-Framework-V4
+
+No manual dependency installation steps are required. Dependencies will be fetched automatically when you first open the project or build.
+
+If needed, you can manually resolve dependencies using:
+```bash
+swift package resolve
+```
 
 ### Javascript
 
