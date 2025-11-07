@@ -52,13 +52,41 @@ swift package resolve
 
 This is a bit of a mess. Goal was to make `birch-outline.js` and `BirchOutline.swift` reusable so that other apps could read TaskPaper's file format. Would simplify things to just have a single JavaScript layer and single Swift layer... but getting code to that point would take some time, so that's why it's the way that it is.
 
-1. nvm use v11.15.0 // IMPORTANT!
-2. birch-outline.js // npm run start 
-3. birch-editor.js // npm run start
-4. Now this Xcode project should pickup any changes
+**Node.js Requirements:**
+- **Node.js v20.x LTS or higher** is required
+- We recommend using [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm) to manage Node.js versions
 
-npm link - from within `birch-outline` so that `birch-editor` can easily make changes to both birch-outline and birch-editor and keep in sync.
-npm start - from within both `birch-outline` so that `birch-editor` so that an updated webpack build will always be in each packages "min" folder. When Xcode BirchOutline and BirchEditor build they will always check if that file has changed, and if so copy the new version into there dependencies.
+**Installing nvm:**
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+```
+
+Both `BirchOutline/birch-outline.js/` and `BirchEditor/birch-editor.js/` directories contain `.nvmrc` files. Running `nvm use` in either directory will automatically switch to the correct Node.js version (v20).
+
+**Build Steps:**
+
+1. Install Node.js v20.x LTS (or use `nvm use` in the JavaScript package directories)
+2. Install dependencies:
+   ```bash
+   cd BirchOutline/birch-outline.js/
+   npm install
+   cd ../../BirchEditor/birch-editor.js/
+   npm install
+   ```
+3. Start development build watchers:
+   ```bash
+   # In BirchOutline/birch-outline.js/
+   npm run start
+   
+   # In BirchEditor/birch-editor.js/
+   npm run start
+   ```
+4. The Xcode project will automatically pick up changes to the JavaScript bundles
+
+**Notes:**
+- Use `npm link` from within `birch-outline.js` so that `birch-editor.js` can reference the local version
+- Running `npm run start` in both packages ensures an updated webpack build is always in each package's "min" folder
+- When Xcode builds BirchOutline and BirchEditor, it checks if the JavaScript files have changed and copies new versions into dependencies
 
 ## Releasing
 
