@@ -567,7 +567,6 @@
 		431713F81DD677CD00B9F605 /* OutlineEditorHandleClickGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineEditorHandleClickGestureRecognizer.swift; sourceTree = "<group>"; };
 		431714001DD677FB00B9F605 /* OutlineEditorHandleDragGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineEditorHandleDragGestureRecognizer.swift; sourceTree = "<group>"; };
 		43192D082A87B8DB00FF7AA8 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		431A482821401B760044E755 /* Paddle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Paddle.framework; path = "Carthage/Checkouts/Mac-Framework-V4/Paddle.framework"; sourceTree = SOURCE_ROOT; };
 		431AB80D1DC12C550039E092 /* RemindersStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersStore.swift; sourceTree = "<group>"; };
 		431D9C7B1D77591400CB4F8E /* Checkers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkers.h; sourceTree = "<group>"; };
 		431D9C7C1D77591400CB4F8E /* Checkers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkers.m; sourceTree = "<group>"; };
@@ -1258,6 +1257,7 @@
 			name = "TaskPaper Setapp";
 			packageProductDependencies = (
 				436A953829D1D3F300A2EA5C /* Setapp */,
+				430B1D6A13FD1C4D9087474F /* Paddle */,
 			);
 			productName = TaskPaper;
 			productReference = 433816611DB93DB900120078 /* TaskPaper.app */;
@@ -1281,6 +1281,8 @@
 			);
 			name = TaskPaper;
 			packageProductDependencies = (
+				435F931D2AB38C0500A3ECE1 /* Sparkle */,
+				430B1D6A13FD1C4D9087474F /* Paddle */,
 			);
 			productName = TaskPaper;
 			productReference = 43402AA11D69F841001F6A2B /* TaskPaper.app */;
@@ -1326,6 +1328,7 @@
 			name = "TaskPaper Direct";
 			packageProductDependencies = (
 				435F931D2AB38C0500A3ECE1 /* Sparkle */,
+				430B1D6A13FD1C4D9087474F /* Paddle */,
 			);
 			productName = TaskPaper;
 			productReference = 43B6AE3C1D6CE91600ACA66C /* TaskPaper.app */;
@@ -1410,6 +1413,7 @@
 			packageReferences = (
 				436A953029D1D25E00A2EA5C /* XCRemoteSwiftPackageReference "Setapp-framework" */,
 				435F93182AB38B0000A3ECE1 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */,
 			);
 			productRefGroup = 43402AA21D69F841001F6A2B /* Products */;
 			projectDirPath = "";
@@ -2204,9 +2208,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2276,9 +2278,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "SETAPP=1";
@@ -2423,9 +2423,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2491,9 +2489,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
@@ -2548,9 +2544,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2609,9 +2603,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2670,10 +2662,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Mac-Framework-V4",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2746,10 +2735,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Mac-Framework-V4",
-				);
+					"$(inherited)",				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2841,7 +2827,7 @@
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.4.2;
+				minimumVersion = 2.6.0;
 			};
 		};
 		436A953029D1D25E00A2EA5C /* XCRemoteSwiftPackageReference "Setapp-framework" */ = {
@@ -2850,6 +2836,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.4.0;
+			};
+		};
+		430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PaddleHQ/Mac-Framework-V4";
+			requirement = {
+				kind = exactVersion;
+				version = 4.4.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -2864,6 +2858,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 436A953029D1D25E00A2EA5C /* XCRemoteSwiftPackageReference "Setapp-framework" */;
 			productName = Setapp;
+		};
+		430B1D6A13FD1C4D9087474F /* Paddle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 430B983D6310D6472DAB1850 /* XCRemoteSwiftPackageReference "Mac-Framework-V4" */;
+			productName = Paddle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
