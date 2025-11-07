@@ -1,0 +1,14 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project TaskPaper.xcodeproj -scheme BirchOutline -destination platform=macOS -testPlan BirchOutlineTestPlan -configuration Debug -derivedDataPath ./DerivedData -enableCodeCoverage YES
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Paddle: https://github.com/PaddleHQ/Mac-Framework-V4 @ 4.4.3
+  Setapp: https://github.com/MacPaw/Setapp-framework.git @ 3.4.0
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.8.0
+
+2025-11-07 15:41:05.291 xcodebuild[43667:22698494] Writing error result bundle to /var/folders/g8/4l9m18d52vg48cwmv_h226q80000gn/T/ResultBundle_2025-07-11_15-41-0005.xcresult
+xcodebuild: error: Scheme BirchOutline is not currently configured for the test action.
+
