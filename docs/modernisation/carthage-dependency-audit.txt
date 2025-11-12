@@ -1,0 +1,202 @@
+# Carthage Dependency Audit
+## Date: 2025-11-12
+## Project: TaskPaper
+
+---
+
+## Dependencies Declared in Cartfile
+
+### 1. Sparkle Framework
+- **Cartfile Declaration**: `github "sparkle-project/Sparkle" ~> 1.2`
+- **Resolved Version**: 1.27.3 (from Cartfile.resolved)
+- **Purpose**: Automatic software updates for macOS applications
+- **Repository**: https://github.com/sparkle-project/Sparkle
+
+### 2. Paddle Framework
+- **Cartfile Declaration**: `github "PaddleHQ/Mac-Framework-V4"`
+- **Resolved Version**: v4.4.3 (from Cartfile.resolved)
+- **Purpose**: Licensing and payment processing
+- **Repository**: https://github.com/PaddleHQ/Mac-Framework-V4
+
+---
+
+## Exact Versions from Cartfile.resolved
+
+```
+github "PaddleHQ/Mac-Framework-V4" "v4.4.3"
+github "sparkle-project/Sparkle" "1.27.3"
+```
+
+---
+
+## SPM Compatibility Verification
+
+### Sparkle Framework
+- **SPM Status**: ✅ **FULLY SUPPORTED**
+- **SPM Repository**: https://github.com/sparkle-project/Sparkle
+- **Minimum Version**: Sparkle 2.0+ has full SPM support
+- **Current Version**: 1.27.3 (Sparkle 1.x series)
+- **Migration Path**: Upgrade to Sparkle 2.6.0+ for SPM support
+- **Breaking Changes**: Sparkle 2.0 introduced API changes from 1.x
+- **Notes**: Sparkle 2.x is the modern version with SPM support. Migration from 1.27.3 → 2.6.0 will require code updates.
+
+### Paddle Framework
+- **SPM Status**: ⚠️ **MANUAL INTEGRATION REQUIRED**
+- **Repository**: https://github.com/PaddleHQ/Mac-Framework-V4
+- **SPM Support**: No Package.swift manifest available
+- **Alternative**: Manual XCFramework integration or binary dependency
+- **Notes**: Paddle v4 does not provide SPM support. Will need manual framework integration.
+
+---
+
+## Framework Usage Locations
+
+### Sparkle Imports
+Found `import Sparkle` in 2 Swift files:
+1. `BirchEditor/BirchEditor.swift/BirchEditor/OutlineEditorAppDelegate.swift`
+2. `TaskPaper/TaskPaperAppDelegate.swift`
+
+**Usage Pattern**: Used in application delegate for software update checking.
+
+### Paddle Imports
+Found `import Paddle` in 2 Swift files:
+1. `BirchEditor/BirchEditor.swift/BirchEditor/OutlineEditorAppDelegate.swift`
+2. `TaskPaper/TaskPaperAppDelegate.swift`
+
+**Usage Pattern**: Used in application delegate for license validation and payment processing.
+
+---
+
+## Current Carthage Build Status
+
+### Built Frameworks in Carthage/Build/Mac/
+- ✅ Paddle.framework (v4.4.3)
+- ⚠️ Sparkle.framework (not found in Carthage/Build/Mac/)
+
+**Note**: Sparkle framework is not present in the Carthage build directory. This suggests:
+1. Sparkle might be integrated via a different method
+2. Carthage build may be incomplete
+3. Sparkle might be linked from a different location
+
+---
+
+## Migration Recommendations
+
+### Priority 1: Sparkle → SPM (High Priority)
+**Action**: Migrate Sparkle from Carthage to Swift Package Manager
+- Upgrade from Sparkle 1.27.3 → 2.6.0+
+- Add SPM dependency: `.package(url: "https://github.com/sparkle-project/Sparkle", from: "2.6.0")`
+- Update import statements and API calls for Sparkle 2.x compatibility
+- Test automatic update functionality thoroughly
+
+**Risk Level**: Medium
+- API changes between Sparkle 1.x and 2.x require code updates
+- Critical functionality (auto-updates) must work correctly
+
+**Estimated Effort**: 2-4 hours
+- 1-2 hours: Add SPM dependency and update project settings
+- 1-2 hours: Update code for Sparkle 2.x API changes
+- Test auto-update flow
+
+### Priority 2: Paddle → Manual Integration (Medium Priority)
+**Action**: Keep Paddle framework but migrate from Carthage to manual integration
+- Copy Paddle.framework to project (e.g., `Frameworks/Paddle.framework`)
+- Update Xcode project to link framework manually
+- Document manual integration process
+- Preserve licensing code (per contribution guidelines)
+
+**Risk Level**: Low
+- No API changes required
+- Simple framework copy and link operation
+
+**Estimated Effort**: 1-2 hours
+- Copy framework to project
+- Update Xcode project settings
+- Verify license validation works
+
+---
+
+## Migration Strategy
+
+### Phase 1: Prepare for Migration
+1. ✅ Audit complete (this document)
+2. Document current Sparkle usage patterns
+3. Review Sparkle 2.x migration guide
+4. Test Paddle framework independently
+
+### Phase 2: Create Package.swift
+1. Create Swift Package manifest at repository root
+2. Add Sparkle 2.6.0+ dependency
+3. Configure for macOS 11.0+ platform
+4. Define library products for BirchOutline and BirchEditor
+
+### Phase 3: Update Xcode Project
+1. Remove Carthage framework search paths
+2. Remove copy-frameworks build phase
+3. Add SPM dependency via Xcode UI
+4. Manually integrate Paddle framework
+
+### Phase 4: Update Code
+1. Update Sparkle imports and API calls for 2.x compatibility
+2. Test automatic update flow
+3. Test license validation
+
+### Phase 5: Remove Carthage
+1. Delete Cartfile and Cartfile.resolved
+2. Delete Carthage/ directory
+3. Update .gitignore
+4. Update README.md
+
+---
+
+## Critical Notes
+
+### Licensing Code Preservation
+⚠️ **IMPORTANT**: Per repository contribution guidelines:
+> "Do not change or disable any of the licensing code."
+
+The Paddle framework integration must be handled carefully to ensure:
+- License validation continues to work correctly
+- No licensing code is modified or disabled
+- Manual testing is performed after migration
+
+### Auto-Update Functionality
+⚠️ **IMPORTANT**: Sparkle handles automatic software updates, which is critical functionality.
+
+After Sparkle migration:
+- Test update checking works correctly
+- Test update download and installation
+- Test update notifications to users
+- Verify all update-related preferences work
+
+### Build Targets
+The project has multiple build targets that must be verified:
+- TaskPaper-Direct
+- TaskPaper-AppStore
+- TaskPaper-Setapp
+
+Ensure Sparkle and Paddle work correctly in all targets after migration.
+
+---
+
+## Next Steps
+
+1. ✅ **P1-T01 Complete**: Dependency audit complete (this document created)
+2. ➡️ **P1-T02**: Create Package.swift with Sparkle 2.6.0+ dependency
+3. ➡️ **P1-T03**: Update Xcode project for SPM integration
+4. ➡️ **P1-T04**: Handle Paddle manual integration
+5. ➡️ **P1-T05**: Remove Carthage files after verification
+6. ➡️ **P1-T06**: Update README.md with new instructions
+
+---
+
+## Success Criteria Verification
+
+```bash
+# Verify audit document exists and contains all required information
+test -f docs/modernisation/carthage-dependency-audit.txt
+grep -q "Sparkle" docs/modernisation/carthage-dependency-audit.txt
+grep -q "Paddle" docs/modernisation/carthage-dependency-audit.txt
+```
+
+**Status**: ✅ All criteria met
