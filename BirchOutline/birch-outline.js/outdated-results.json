@@ -1,0 +1,37 @@
+{
+  "ctph.js": {
+    "wanted": "0.0.5",
+    "latest": "0.0.5",
+    "dependent": "birch-outline.js"
+  },
+  "event-kit": {
+    "wanted": "2.5.3",
+    "latest": "2.5.3",
+    "dependent": "birch-outline.js"
+  },
+  "htmlparser2": {
+    "wanted": "3.10.1",
+    "latest": "10.0.0",
+    "dependent": "birch-outline.js"
+  },
+  "moment": {
+    "wanted": "2.30.1",
+    "latest": "2.30.1",
+    "dependent": "birch-outline.js"
+  },
+  "natives": {
+    "wanted": "1.1.6",
+    "latest": "1.1.6",
+    "dependent": "birch-outline.js"
+  },
+  "string-hash": {
+    "wanted": "1.1.3",
+    "latest": "1.1.3",
+    "dependent": "birch-outline.js"
+  },
+  "underscore-plus": {
+    "wanted": "1.7.0",
+    "latest": "1.7.0",
+    "dependent": "birch-outline.js"
+  }
+}

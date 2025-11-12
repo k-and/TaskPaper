@@ -19,7 +19,7 @@ extension NSAttributedString.Key {
     static let storageItemIDAttributeName = NSAttributedString.Key("StorageItemID")
 }
 
-public let SharedHandlePath = NSBezierPath()
+nonisolated(unsafe) public let SharedHandlePath = NSBezierPath()
 
 public struct ItemGeometry {
     let itemRect: NSRect

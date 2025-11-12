@@ -1,5 +1,15 @@
 {
+  "originHash" : "552f6a1be68acf753f3403086340e6589e7dd5237af0fc884212d8fd2c39376a",
   "pins" : [
+    {
+      "identity" : "mac-framework-v4",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PaddleHQ/Mac-Framework-V4",
+      "state" : {
+        "revision" : "0144d3eabb1adad97f956b7491472d739369a335",
+        "version" : "4.4.3"
+      }
+    },
     {
       "identity" : "setapp-framework",
       "kind" : "remoteSourceControl",
@@ -14,10 +24,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "87e4fcbac39912f9cdb9a9acf205cad60e1ca3bc",
-        "version" : "2.4.2"
+        "revision" : "9a1d2a19d3595fcf8d9c447173f9a1687b3dcadb",
+        "version" : "2.8.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

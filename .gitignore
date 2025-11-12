@@ -2,11 +2,9 @@
 /build
 /DerivedData
 
-# Carthage, Keep Build/Mac, ignore everything else
-Carthage/Build/iOS
-Carthage/Build/tvOS
-Carthage/Build/watchOS
-Carthage/Checkouts
+# Swift Package Manager
+.swiftpm/
+.build/
 
 ## Various settings
 *.pbxuser

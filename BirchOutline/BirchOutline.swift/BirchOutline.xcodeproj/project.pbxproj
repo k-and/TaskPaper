@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A994A042EBE93BC002E29A9 /* OutlineCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A994A032EBE93BC002E29A9 /* OutlineCoreTests.swift */; };
+		0A994A052EBE93BC002E29A9 /* OutlineCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A994A032EBE93BC002E29A9 /* OutlineCoreTests.swift */; };
+		0A994A072EBE96EE002E29A9 /* JavaScriptBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A994A062EBE96EE002E29A9 /* JavaScriptBridgeTests.swift */; };
+		0A994A082EBE96EE002E29A9 /* JavaScriptBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A994A062EBE96EE002E29A9 /* JavaScriptBridgeTests.swift */; };
 		4300222B1D4435AA00E7908D /* MutationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4300222A1D4435AA00E7908D /* MutationType.swift */; };
 		4300222D1D452DA500E7908D /* ItemPathQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4300222C1D452DA500E7908D /* ItemPathQueryType.swift */; };
 		431852681D32A8DE0049BBB0 /* BirchCrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431852671D32A8DE0049BBB0 /* BirchCrossPlatform.swift */; };
@@ -72,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A994A032EBE93BC002E29A9 /* OutlineCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCoreTests.swift; sourceTree = "<group>"; };
+		0A994A062EBE96EE002E29A9 /* JavaScriptBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScriptBridgeTests.swift; sourceTree = "<group>"; };
 		4300222A1D4435AA00E7908D /* MutationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutationType.swift; sourceTree = "<group>"; };
 		4300222C1D452DA500E7908D /* ItemPathQueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPathQueryType.swift; sourceTree = "<group>"; };
 		431852671D32A8DE0049BBB0 /* BirchCrossPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirchCrossPlatform.swift; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 		436C0DD81D1D64CC0089FA7A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0A994A062EBE96EE002E29A9 /* JavaScriptBridgeTests.swift */,
+				0A994A032EBE93BC002E29A9 /* OutlineCoreTests.swift */,
 				436C0DF81D1D65850089FA7A /* Fixtures */,
 				436C0DDA1D1D64CC0089FA7A /* JavaScriptContextTests.swift */,
 				436C0DDD1D1D64CC0089FA7A /* OutlineTests.swift */,
@@ -394,8 +402,9 @@
 		436C0D671D1D56D50089FA7A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 2600;
 				ORGANIZATIONNAME = "Jesse Grosjean";
 				TargetAttributes = {
 					436C0D6F1D1D56D50089FA7A = {
@@ -520,6 +529,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				436C0DEE1D1D65200089FA7A /* JavaScriptContextTests.swift in Sources */,
+				0A994A042EBE93BC002E29A9 /* OutlineCoreTests.swift in Sources */,
+				0A994A082EBE96EE002E29A9 /* JavaScriptBridgeTests.swift in Sources */,
 				436C0DEC1D1D651C0089FA7A /* ItemTests.swift in Sources */,
 				436C0DF01D1D65230089FA7A /* OutlineTests.swift in Sources */,
 			);
@@ -549,6 +560,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				436C0DEF1D1D65210089FA7A /* JavaScriptContextTests.swift in Sources */,
+				0A994A052EBE93BC002E29A9 /* OutlineCoreTests.swift in Sources */,
+				0A994A072EBE96EE002E29A9 /* JavaScriptBridgeTests.swift in Sources */,
 				436C0DED1D1D651D0089FA7A /* ItemTests.swift in Sources */,
 				436C0DF11D1D65240089FA7A /* OutlineTests.swift in Sources */,
 			);
@@ -607,6 +620,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -626,6 +640,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -670,6 +685,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -681,7 +697,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -699,10 +717,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = BirchOutline/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -720,10 +745,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = BirchOutline/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -736,7 +768,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = BirchOutlineTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutlineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -748,7 +785,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = BirchOutlineTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutlineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -763,9 +805,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = BirchOutlineiOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutlineiOS;
 				PRODUCT_NAME = BirchOutline;
 				SDKROOT = iphoneos;
@@ -783,9 +832,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 3;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = BirchOutlineiOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutlineiOS;
 				PRODUCT_NAME = BirchOutline;
 				SDKROOT = iphoneos;
@@ -800,7 +856,12 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BirchOutlineiOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutlineiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -812,7 +873,12 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BirchOutlineiOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hogbaysoftware.BirchOutlineiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
