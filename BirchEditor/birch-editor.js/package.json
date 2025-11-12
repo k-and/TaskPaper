@@ -4,6 +4,9 @@
   "description": "Edit buffer for birch-outline models",
   "main": "lib/index",
   "atomTestRunner": "./spec/atomTestRunner",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jessegrosjean/birch-editor.git"

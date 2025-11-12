@@ -4,6 +4,9 @@
   "description": "Cross-platform scripting for TaskPaper",
   "main": "./lib/index",
   "atomTestRunner": "./spec/atomTestRunner",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jessegrosjean/birch-outline"

@@ -41,13 +41,42 @@ carthage update
 
 This is a bit of a mess. Goal was to make `birch-outline.js` and `BirchOutline.swift` reusable so that other apps could read TaskPaper's file format. Would simplify things to just have a single JavaScript layer and single Swift layer... but getting code to that point would take some time, so that's why it's the way that it is.
 
-1. nvm use v11.15.0 // IMPORTANT!
-2. birch-outline.js // npm run start 
-3. birch-editor.js // npm run start
+**Node.js Requirement: v20.x LTS**
+
+Both `birch-outline.js` and `birch-editor.js` require Node.js v20 or higher. The easiest way to manage Node.js versions is with [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm).
+
+**Building JavaScript Layers:**
+
+1. Install Node.js v20:
+   ```bash
+   nvm install 20
+   nvm use 20  # Or just run: nvm use (reads from .nvmrc files)
+   ```
+
+2. Build birch-outline.js:
+   ```bash
+   cd BirchOutline/birch-outline.js
+   npm install
+   npm run start
+   ```
+
+3. Build birch-editor.js:
+   ```bash
+   cd BirchEditor/birch-editor.js
+   npm install
+   npm run start
+   ```
+
 4. Now this Xcode project should pickup any changes
 
-npm link - from within `birch-outline` so that `birch-editor` can easily make changes to both birch-outline and birch-editor and keep in sync.
-npm start - from within both `birch-outline` so that `birch-editor` so that an updated webpack build will always be in each packages "min" folder. When Xcode BirchOutline and BirchEditor build they will always check if that file has changed, and if so copy the new version into there dependencies.
+**Development Workflow:**
+
+- **npm link**: Use from within `birch-outline.js` so that `birch-editor.js` can reference the local version
+- **npm start**: Run in both packages to watch for changes and rebuild automatically
+- **Webpack output**: Goes to each package's "min" folder
+- **Xcode integration**: BirchOutline and BirchEditor Swift projects automatically copy updated JavaScript bundles during build
+
+**.nvmrc files**: Both JavaScript packages now include `.nvmrc` files specifying Node.js 20, so you can simply run `nvm use` in each directory.
 
 ## Releasing
 
