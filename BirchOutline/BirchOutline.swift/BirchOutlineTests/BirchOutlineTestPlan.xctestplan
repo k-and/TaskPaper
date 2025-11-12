@@ -1,0 +1,40 @@
+{
+  "configurations" : [
+    {
+      "id" : "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+      "name" : "Debug",
+      "options" : {
+        "threadSanitizerEnabled" : true
+      }
+    },
+    {
+      "id" : "B2C3D4E5-F6A7-8901-BCDE-F12345678901",
+      "name" : "Release",
+      "options" : {
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "target" : {
+            "containerPath" : "container:BirchOutline.xcodeproj",
+            "identifier" : "436C0D7A1D1D56D50089FA7A",
+            "name" : "BirchOutlineTests"
+          }
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:BirchOutline.xcodeproj",
+        "identifier" : "436C0D7A1D1D56D50089FA7A",
+        "name" : "BirchOutlineTests"
+      }
+    }
+  ],
+  "version" : 1
+}
