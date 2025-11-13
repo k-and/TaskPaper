@@ -370,6 +370,16 @@ open class OutlineDocument: NSDocument {
     }
 }
 
+// MARK: - OutlineDocumentProtocol Conformance
+
+extension OutlineDocument: OutlineDocumentProtocol {
+    // All protocol requirements are satisfied by OutlineDocument's existing implementation:
+    // - outline, fileURL, displayName, fileType, hasUnautosavedChanges: existing properties
+    // - read(from:ofType:), data(ofType:), write(to:ofType:): existing methods
+    // - save(to:ofType:for:completionHandler:): inherited from NSDocument
+    // - updateChangeCount(_:): existing method (overridden from NSDocument)
+}
+
 // Helper function inserted by Swift 4.2 migrator.
 private func convertFromNSPrintInfoAttributeKeyDictionary(_ input: [NSPrintInfo.AttributeKey: Any]) -> [String: Any] {
     return Dictionary(uniqueKeysWithValues: input.map { key, value in (key.rawValue, value) })
