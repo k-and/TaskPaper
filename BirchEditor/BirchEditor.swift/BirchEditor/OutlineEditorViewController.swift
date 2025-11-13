@@ -92,9 +92,11 @@ open class OutlineEditorViewController: NSViewController, OutlineEditorHolderTyp
         }
     }
 
-    open var styleSheet: StyleSheet? {
+    open var styleSheet: StyleSheetProtocol? {
         didSet {
-            outlineEditor?.styleSheet = styleSheet
+            // Note: outlineEditor.styleSheet is still concrete StyleSheet type
+            // This accepts protocol but passes to concrete property
+            outlineEditor?.styleSheet = styleSheet as? StyleSheet
             if let computedStyle = outlineEditor?.computedStyle {
                 if let layoutManager = outlineEditorView.layoutManager as? OutlineEditorLayoutManager {
                     layoutManager.outlineEditorComputedStyle = computedStyle

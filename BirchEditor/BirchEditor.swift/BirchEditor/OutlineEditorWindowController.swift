@@ -19,7 +19,7 @@ open class OutlineEditorWindowController: NSWindowController, OutlineEditorHolde
     // var showTitlebarDebouncer: Debouncer?
     // var hideTitlebarDebouncer: Debouncer?
 
-    open var styleSheet: StyleSheet? = StyleSheet.sharedInstance {
+    open var styleSheet: StyleSheetProtocol? = StyleSheet.sharedInstance {
         didSet {
             pathMonitor?.stopMonitoring()
             pathMonitor = nil
@@ -30,6 +30,7 @@ open class OutlineEditorWindowController: NSWindowController, OutlineEditorHolde
             if let styleSheet = styleSheet {
                 styleSheetUpdateDebouncer = Debouncer(delay: 0.1) { [weak self] in
                     if let pathMonitor = self?.pathMonitor {
+                        // Create new stylesheet when file changes
                         self?.styleSheet = BirchEditor.createStyleSheet(pathMonitor.URL)
                     }
                 }
@@ -46,7 +47,7 @@ open class OutlineEditorWindowController: NSWindowController, OutlineEditorHolde
 
             contentViewController?.sendStyleSheetToSelfAndDescendentHolders(styleSheet)
 
-            if let window = window, let computedStyle = styleSheet?.computedStyleForElement("window") {
+            if let window = window, let computedStyle = styleSheet?.computedStyle(for: "window") {
                 window.appearance = computedStyle.allValues[.appearance] as? NSAppearance ?? nil // NSAppearance(named: NSAppearance)
             }
         }

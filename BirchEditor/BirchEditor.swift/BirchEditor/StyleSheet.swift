@@ -414,14 +414,14 @@ func paragraphStyleFromJSStyle(_ jsStyle: [String: Any]) -> NSParagraphStyle? {
     return paragraphStyle
 }
 
-// MainActor isolated - holds StyleSheet which is MainActor-bound
+// MainActor isolated - holds StyleSheetProtocol which is MainActor-bound
 @MainActor
 public protocol StylesheetHolder {
-    var styleSheet: StyleSheet? { get set }
+    var styleSheet: StyleSheetProtocol? { get set }
 }
 
 extension NSViewController {
-    func sendStyleSheetToSelfAndDescendentHolders(_ styleSheet: StyleSheet?) {
+    func sendStyleSheetToSelfAndDescendentHolders(_ styleSheet: StyleSheetProtocol?) {
         for each in descendentViewControllersWithSelf {
             if var each = each as? StylesheetHolder {
                 each.styleSheet = styleSheet
