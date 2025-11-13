@@ -8,7 +8,7 @@
 
 import BirchOutline
 import Cocoa
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 enum ItemDropLocation {
     case on

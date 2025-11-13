@@ -13,7 +13,7 @@
 #endif
 
 import BirchOutline
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 open class OutlineEditorTextStorage: NSTextStorageBase {
     open weak var outlineEditor: OutlineEditor?

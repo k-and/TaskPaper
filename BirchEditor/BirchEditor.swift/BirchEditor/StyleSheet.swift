@@ -13,12 +13,14 @@
 #endif
 
 import BirchOutline
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 let baseStyleSheetURL = Bundle.main.url(forResource: "base-stylesheet", withExtension: "less")!
 let baseStyleSheetLESS = (try? String(contentsOf: baseStyleSheetURL, encoding: String.Encoding.utf8)) ?? ""
 let DefaultStyleSheetURL = "DefaultStyleSheetURL"
 
+// MainActor isolated - compiles LESS using JavaScriptCore
+@MainActor
 open class StyleSheet {
     public static let sharedInstance = BirchEditor.createStyleSheet(nil)
 
@@ -412,6 +414,8 @@ func paragraphStyleFromJSStyle(_ jsStyle: [String: Any]) -> NSParagraphStyle? {
     return paragraphStyle
 }
 
+// MainActor isolated - holds StyleSheet which is MainActor-bound
+@MainActor
 public protocol StylesheetHolder {
     var styleSheet: StyleSheet? { get set }
 }

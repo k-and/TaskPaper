@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 open class OutlineSidebarItem: ChoicePaletteItem {
     let id: String

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 public enum MutationKind {
     
@@ -17,6 +17,8 @@ public enum MutationKind {
 
 }
 
+// MainActor isolated - all mutation operations involve JavaScript
+@MainActor
 public protocol MutationType: AnyObject {
     
     var target: ItemType { get }

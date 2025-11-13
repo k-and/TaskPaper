@@ -8,7 +8,7 @@
 
 import BirchOutline
 import Cocoa
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 class ChoicePaletteViewController: NSViewController {
     @IBOutlet var textView: NSView!

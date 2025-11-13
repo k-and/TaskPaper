@@ -7,8 +7,10 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - all query operations involve JavaScript
+@MainActor
 public protocol ItemPathQueryType: AnyObject {
     
     func onDidChange(_ callback: @escaping (_ items: [ItemType]) -> Void) -> DisposableType

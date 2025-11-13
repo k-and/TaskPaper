@@ -13,7 +13,7 @@
 #endif
 
 import BirchOutline
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 extension NSAttributedString.Key {
     static let storageItemIDAttributeName = NSAttributedString.Key("StorageItemID")

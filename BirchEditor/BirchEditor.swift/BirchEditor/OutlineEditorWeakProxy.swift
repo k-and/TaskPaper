@@ -14,8 +14,10 @@
 
 import BirchOutline
 import EventKit
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - exposed to JavaScript via JSExport
+@MainActor
 @objc protocol NativeOutlineEditor: JSExport {
     var isEditing: Bool { get }
     var visibleRect: CGRect { get }
@@ -48,6 +50,8 @@ import JavaScriptCore
     func getDateFromUser(_ placeholder: String, dateStringTemplate: String?, callback: JSValue)
 }
 
+// MainActor isolated - conforms to NativeOutlineEditor which is MainActor-bound
+@MainActor
 class OutlineEditorWeakProxy: NSObject {
     weak var outlineEditor: OutlineEditor?
     var isEditingCount: UInt = 0

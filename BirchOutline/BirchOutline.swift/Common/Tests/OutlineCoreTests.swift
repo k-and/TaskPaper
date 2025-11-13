@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 @testable import BirchOutline
 
 /// Comprehensive tests for outline core operations

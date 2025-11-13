@@ -7,15 +7,19 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - date parsing/formatting uses JavaScript
+@MainActor
 public protocol DateTimeType: AnyObject {
-    
+
     static func parse(dateTime: String) -> Date?
     static func format(dateTime: Date, showMillisecondsIfNeeded: Bool, showSecondsIfNeeded: Bool) -> String
-    
+
 }
 
+// MainActor isolated - accesses shared JavaScript context
+@MainActor
 public class DateTime: DateTimeType {
 
     static let jsDateTimeClass = BirchOutline.sharedContext.jsDateTimeClass

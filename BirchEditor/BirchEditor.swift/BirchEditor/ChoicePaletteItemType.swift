@@ -6,8 +6,10 @@
 //  Copyright © 2005–2018 Jesse Grosjean. All rights reserved.
 //
 
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - exposed to JavaScript via JSExport
+@MainActor
 @objc public protocol ChoicePaletteItemType: JSExport {
     weak var parent: ChoicePaletteItemType? { get set }
     var children: [ChoicePaletteItemType] { get }
@@ -28,6 +30,8 @@ import JavaScriptCore
     func appendChild(_ child: ChoicePaletteItemType)
 }
 
+// MainActor isolated - conforms to ChoicePaletteItemType which is MainActor-bound
+@MainActor
 open class ChoicePaletteItem: NSObject, ChoicePaletteItemType {
     open var type: String
     open var title: String

@@ -7,12 +7,14 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - JSValue extension calls JavaScript dispose method
+@MainActor
 public protocol DisposableType: AnyObject {
-    
+
     func dispose()
-    
+
 }
 
 extension JSValue: DisposableType {

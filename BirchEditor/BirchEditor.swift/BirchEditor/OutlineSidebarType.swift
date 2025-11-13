@@ -8,8 +8,10 @@
 
 import BirchOutline
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - all sidebar operations involve JavaScript
+@MainActor
 public protocol OutlineSidebarType: AnyObject {
     var rootItem: OutlineSidebarItem! { get }
     var homeItem: OutlineSidebarItem { get }
@@ -42,6 +44,8 @@ public protocol OutlineSidebarType: AnyObject {
     func destroy()
 }
 
+// MainActor isolated - vends sidebar items from JavaScript
+@MainActor
 protocol OutlineSidebarItemFactoryType: AnyObject {
     func vendOutlineSidebarItem(_ jsOutlineSidebarItem: JSValue) -> OutlineSidebarItem
 }

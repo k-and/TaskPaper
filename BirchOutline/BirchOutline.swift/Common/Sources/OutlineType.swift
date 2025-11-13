@@ -7,8 +7,10 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - all outline operations involve JavaScript
+@MainActor
 public protocol OutlineType: AnyObject {
     
     var jsOutline: JSValue { get }

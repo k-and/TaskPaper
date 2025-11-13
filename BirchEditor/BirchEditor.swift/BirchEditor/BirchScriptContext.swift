@@ -8,7 +8,7 @@
 
 import BirchOutline
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 extension BirchScriptContext {
     var jsBirch: JSValue {

@@ -7,7 +7,7 @@
 //
 
 import BirchOutline
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 typealias Command = (command: String, displayName: String)
 

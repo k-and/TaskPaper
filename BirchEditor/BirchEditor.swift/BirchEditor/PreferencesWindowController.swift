@@ -8,7 +8,7 @@
 
 import BirchOutline
 import Cocoa
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 let preferencesBundle = Bundle(for: ChoicePaletteWindowController.self)
 let preferencesStoryboard = NSStoryboard(name: "Preferences", bundle: preferencesBundle)

@@ -6,9 +6,14 @@
 //  Copyright © 2005–2018 Jesse Grosjean. All rights reserved.
 //
 
-import JavaScriptCore
+// @preconcurrency suppresses warnings for JSContext/JSValue which are non-Sendable
+// by Apple's framework design. All JavaScript operations are isolated to MainActor
+// which is safe because JavaScriptCore is single-threaded and our usage is UI-bound.
+@preconcurrency import JavaScriptCore
 import WebKit
 
+// MainActor isolated - JavaScriptCore must run on a single thread
+@MainActor
 open class BirchScriptContext {
     
     open var context: JSContext!    

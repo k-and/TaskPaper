@@ -7,8 +7,10 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
+// MainActor isolated - all item operations involve JavaScript
+@MainActor
 public protocol ItemType: AnyObject {
     
     static func getCommonAncestors(_ items: [ItemType]) -> [ItemType]

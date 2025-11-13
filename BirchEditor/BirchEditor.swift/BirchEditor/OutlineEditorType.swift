@@ -8,10 +8,12 @@
 
 import BirchOutline
 import Cocoa
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 public typealias OutlineEditorState = (hoistedItem: ItemType?, focusedItem: ItemType?, itemPathFilter: String?)
 
+// MainActor isolated - all editor operations involve JavaScript and UI updates
+@MainActor
 public protocol OutlineEditorType: AnyObject, StylesheetHolder {
     var outline: OutlineType { get }
     var outlineSidebar: OutlineSidebarType? { get }
@@ -76,6 +78,8 @@ public protocol OutlineEditorType: AnyObject, StylesheetHolder {
     func createPasteboardItem(_ item: ItemType) -> NSPasteboardItem
 }
 
+// MainActor isolated - holds OutlineEditorType which is MainActor-bound
+@MainActor
 public protocol OutlineEditorHolderType {
     var outlineEditor: OutlineEditorType? { get set }
 }

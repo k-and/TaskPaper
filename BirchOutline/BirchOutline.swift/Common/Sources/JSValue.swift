@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 
 extension JSValue {
     

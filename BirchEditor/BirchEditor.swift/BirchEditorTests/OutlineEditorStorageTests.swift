@@ -7,7 +7,7 @@
 //
 
 import BirchOutline
-import JavaScriptCore
+@preconcurrency import JavaScriptCore
 @testable import TaskPaper
 import XCTest
 
