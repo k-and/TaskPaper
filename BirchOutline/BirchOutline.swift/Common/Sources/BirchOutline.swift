@@ -27,14 +27,17 @@ open class BirchOutline {
         }
     }
 
+    @MainActor
     public static func createOutline(_ type: String?, content: String?) -> OutlineType {
         return sharedContext.createOutline(type, content: content)
     }
-    
+
+    @MainActor
     public static func createTaskPaperOutline(_ content: String?) -> OutlineType {
         return sharedContext.createTaskPaperOutline(content)
     }
 
+    @MainActor
     public static func createWriteRoomOutline(_ content: String?) -> OutlineType {
         return sharedContext.createWriteRoomOutline(content)
     }
