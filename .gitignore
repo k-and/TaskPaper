@@ -35,4 +35,4 @@ node_modules
 lib
 .DS_Store
 npm-debug.log
-*.swp
+*.swpTaskPaper.xcodeproj/project.pbxproj.backup
