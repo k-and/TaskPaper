@@ -2344,7 +2344,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 3.9.4;
 				ONLY_ACTIVE_ARCH = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_CONCURRENCY_COMPLETE_CHECKING = targeted;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -2385,7 +2386,8 @@
 				MARKETING_VERSION = 3.9.4;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
+				SWIFT_CONCURRENCY_COMPLETE_CHECKING = targeted;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
