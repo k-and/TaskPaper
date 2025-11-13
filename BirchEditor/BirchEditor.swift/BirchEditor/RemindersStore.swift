@@ -30,6 +30,25 @@ let defaultListText = NSLocalizedString(" (Default List)", tableName: "Reminders
 class RemindersStore {
     static let eventStore = EKEventStore()
 
+    /// Async version: Request access to EventKit entity type using Swift Concurrency.
+    /// - Parameter entityType: The entity type to request access for
+    /// - Returns: True if access was granted
+    /// - Throws: RemindersStoreAccessError if access denied, or underlying EventKit error
+    @MainActor
+    static func requestAccess(to entityType: EKEntityType) async throws -> Bool {
+        return try await withCheckedThrowingContinuation { continuation in
+            eventStore.requestAccess(to: entityType) { granted, error in
+                if granted {
+                    continuation.resume(returning: true)
+                } else {
+                    continuation.resume(throwing: error ?? RemindersStoreAccessError())
+                }
+            }
+        }
+    }
+
+    /// Legacy callback-based version. Deprecated in favor of async version.
+    @available(*, deprecated, message: "Use async requestAccess(to:) instead")
     static func requestAccess(to entityType: EKEntityType, completion: @escaping EKEventStoreRequestAccessCompletionHandler) {
         eventStore.requestAccess(to: entityType) { granted, error in
             if granted {
@@ -40,6 +59,17 @@ class RemindersStore {
         }
     }
 
+    /// Async version: Fetch all reminder calendars.
+    /// - Returns: Array of reminder calendars
+    /// - Throws: RemindersStoreAccessError if access denied, or underlying EventKit error
+    @MainActor
+    static func fetchReminderCalendars() async throws -> [EKCalendar] {
+        _ = try await requestAccess(to: .reminder)
+        return eventStore.calendars(for: .reminder)
+    }
+
+    /// Legacy callback-based version. Deprecated in favor of async version.
+    @available(*, deprecated, message: "Use async fetchReminderCalendars() instead")
     static func fetchReminderCalendars(callback: @escaping ([EKCalendar]?, Error?) -> Void) {
         RemindersStore.requestAccess(to: .reminder) { granted, error in
             if granted {
@@ -55,6 +85,77 @@ class RemindersStore {
         }
     }
 
+    /// Async version: Fetch and sort reminders.
+    /// - Parameters:
+    ///   - useDefaultList: If true, only fetch from default calendar
+    ///   - allowCompletedReminders: If true, include completed reminders
+    /// - Returns: Sorted array of reminders
+    /// - Throws: RemindersStoreAccessError if access denied, or underlying EventKit error
+    @MainActor
+    static func fetchReminders(useDefaultList: Bool = false, allowCompletedReminders: Bool = false) async throws -> [EKReminder] {
+        _ = try await requestAccess(to: .reminder)
+
+        let calendar = NSCalendar.current
+        var calendars = [eventStore.defaultCalendarForNewReminders()]
+        if !useDefaultList {
+            calendars = eventStore.calendars(for: .reminder)
+        }
+
+        let predicate = allowCompletedReminders ?
+            eventStore.predicateForReminders(in: calendars as? [EKCalendar]) :
+            eventStore.predicateForIncompleteReminders(withDueDateStarting: nil, ending: nil, calendars: calendars as? [EKCalendar])
+
+        let fetchedReminders = try await withCheckedThrowingContinuation { continuation in
+            eventStore.fetchReminders(matching: predicate) { reminders in
+                if let reminders = reminders {
+                    continuation.resume(returning: reminders)
+                } else {
+                    continuation.resume(returning: [])
+                }
+            }
+        }
+
+        let sortedReminders = fetchedReminders.sorted {
+            if $0.isCompleted != $1.isCompleted {
+                return $1.isCompleted
+            }
+
+            var dueComponents0 = $0.dueDateComponents
+            var dueComponents1 = $1.dueDateComponents
+
+            if dueComponents0?.calendar == nil {
+                dueComponents0?.calendar = calendar
+            }
+
+            if dueComponents1?.calendar == nil {
+                dueComponents1?.calendar = calendar
+            }
+
+            let dueDate0 = dueComponents0?.date
+            let dueDate1 = dueComponents1?.date
+
+            if dueDate0 != nil {
+                if dueDate1 != nil {
+                    return dueDate0! < dueDate1!
+                } else {
+                    return true
+                }
+            } else if dueDate1 != nil {
+                return false
+            }
+
+            if $0.priority != $1.priority {
+                return $0.priority > $1.priority
+            }
+
+            return $0.creationDate ?? Date() < $1.creationDate ?? Date()
+        }
+
+        return sortedReminders
+    }
+
+    /// Legacy callback-based version. Deprecated in favor of async version.
+    @available(*, deprecated, message: "Use async fetchReminders(useDefaultList:allowCompletedReminders:) instead")
     static func fetchReminders(useDefaultList: Bool = false, allowCompletedReminders: Bool = false, callback: @escaping ([EKReminder]?, Error?) -> Void) {
         RemindersStore.requestAccess(to: .reminder) { granted, error in
             if granted {
