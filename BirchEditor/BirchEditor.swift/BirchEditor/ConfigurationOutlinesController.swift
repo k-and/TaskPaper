@@ -10,8 +10,12 @@ import BirchOutline
 import Foundation
 
 class ConfigurationOutlinesController: NSObject {
+    // MainActor isolated - manages configuration state and file monitoring
+    @MainActor
     static var outlines = [OutlineType]()
+    @MainActor
     static var subscriptions = [DisposableType]()
+    @MainActor
     static var fileMonitors = [PathMonitor]()
 
     static func initConfigurationOutline(_ name: String, jsOutline: JSValue) {

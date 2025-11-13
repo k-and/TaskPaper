@@ -35,7 +35,12 @@ open class ItemPasteboardUtilities {
 
     open class func readItemsSerializedItemReferences(_ pasteboardItem: NSPasteboardItem, editor: OutlineEditorType) -> [ItemType]? {
         if let serializedItemReferences = pasteboardItem.string(forType: .itemReference) {
-            return editor.deserializeItems(serializedItemReferences, options: ["type": NSPasteboard.PasteboardType.itemReference.rawValue])
+            // SAFETY: This method is only called from Cocoa UI delegates which are guaranteed
+            // to run on MainActor. Verified call site:
+            // - ItemPasteboardProvider.swift:26 (NSPasteboardItemDataProvider.pasteboard(_:item:provideDataForType:))
+            return MainActor.assumeIsolated {
+                editor.deserializeItems(serializedItemReferences, options: ["type": NSPasteboard.PasteboardType.itemReference.rawValue])
+            }
         }
         return nil
     }
@@ -58,7 +63,13 @@ open class ItemPasteboardUtilities {
         }
 
         if let strings = strings, strings.count > 0 {
-            return editor.deserializeItems(strings, options: ["type": type])
+            // SAFETY: This method is only called from Cocoa UI delegates which are guaranteed
+            // to run on MainActor. Verified call sites:
+            // - OutlineSidebarViewController.swift:222 (NSOutlineView.validateDrop)
+            // - OutlineEditorView.swift:949 (NSTextView.readSelection)
+            return MainActor.assumeIsolated {
+                editor.deserializeItems(strings, options: ["type": type])
+            }
         }
 
         return nil
@@ -156,7 +167,13 @@ open class ItemPasteboardUtilities {
                 }
 
                 if let items = items {
-                    editor.moveBranches(items, parent: parent, nextSibling: nextSibling, options: nil)
+                    // SAFETY: This method is only called from Cocoa UI delegates which are guaranteed
+                    // to run on MainActor. Verified call sites:
+                    // - OutlineSidebarViewController.swift:243 (NSOutlineView.acceptDrop)
+                    // - OutlineEditorView.swift:866 (NSTextView.performDragOperation)
+                    MainActor.assumeIsolated {
+                        editor.moveBranches(items, parent: parent, nextSibling: nextSibling, options: nil)
+                    }
                     return true
                 }
             }

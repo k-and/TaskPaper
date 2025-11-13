@@ -9,7 +9,10 @@
 import BirchOutline
 
 class ScriptCommands: NSObject {
+    // MainActor isolated - manages user script lifecycle and monitoring
+    @MainActor
     static var scriptCommandsDisposables: [DisposableType]?
+    @MainActor
     static var scriptsFolderMonitor: PathMonitor?
 
     static func initScriptCommands() {

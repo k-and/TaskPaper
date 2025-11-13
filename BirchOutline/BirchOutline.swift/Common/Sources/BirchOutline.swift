@@ -8,8 +8,11 @@
 
 open class BirchOutline {
 
+    // MainActor isolated - holds JSContext which must run on main thread
+    @MainActor
     static var _sharedContext: BirchScriptContext!
-    
+
+    @MainActor
     public static var sharedContext: BirchScriptContext {
         set {
             _sharedContext = newValue

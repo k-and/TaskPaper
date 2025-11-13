@@ -8,7 +8,11 @@
 
 import Foundation
 
-var TabbedWindowsKey = "tabbedWindows"
+// Immutable constant - thread-safe
+let TabbedWindowsKey = "tabbedWindows"
+
+// KVO context pointer - MainActor isolated (used only in NSWindow init/deinit)
+@MainActor
 var tabbedWindowsContext = malloc(1)!
 
 extension Notification.Name {

@@ -13,7 +13,12 @@ typealias Command = (command: String, displayName: String)
 
 class Commands: NSObject {
     static let jsCommands = BirchOutline.sharedContext.jsBirchCommands
+
+    // TODO: DEAD CODE - These properties are never used (only ScriptCommands.swift is active)
+    // Remove in post-migration cleanup along with initScriptCommands() and reloadScriptCommands()
+    @MainActor
     static var scriptCommandsDisposables: [DisposableType]?
+    @MainActor
     static var scriptsFolderMonitor: PathMonitor?
 
     static func add(_ target: String, commandName: String, callback: @escaping () -> Void) -> DisposableType {
