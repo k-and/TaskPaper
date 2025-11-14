@@ -482,6 +482,134 @@ This is the **most critical and time-consuming** manual task in the entire moder
 
 ---
 
+### P2-T02: Integrate Protocol Files into Xcode Project
+
+**Status**: 🔄 Files created, awaiting Xcode integration
+**Guide**: This section
+**Estimated Time**: 30 minutes
+**Risk**: 🟢 Low
+**Priority**: ⚡ High - Blocks protocol-based dependency injection
+
+**Background**:
+
+The protocol-oriented design work (P2-T13 to P2-T19) has been completed, creating:
+- Protocol definitions: `StyleSheetProtocol`, `OutlineDocumentProtocol`
+- Mock implementations: `MockStyleSheet`, `MockOutlineEditor`, `MockOutlineDocument`
+- Example tests: `MockUsageExamplesTests`
+- Documentation: `Protocol-Testing-Patterns.md`
+
+However, the protocol files were created but **not added to the Xcode project**, causing build errors. The code that references these protocols has been temporarily reverted.
+
+**Files Ready for Integration**:
+
+```
+BirchEditor/BirchEditor.swift/BirchEditor/Protocols/
+├── StyleSheetProtocol.swift          [NEEDS: BirchEditor target]
+└── OutlineDocumentProtocol.swift     [NEEDS: BirchEditor target]
+
+BirchEditor/BirchEditor.swift/BirchEditorTests/Mocks/
+├── MockStyleSheet.swift              [NEEDS: BirchEditorTests target]
+├── MockOutlineEditor.swift           [NEEDS: BirchEditorTests target]
+└── MockOutlineDocument.swift         [NEEDS: BirchEditorTests target]
+
+BirchEditor/BirchEditor.swift/BirchEditorTests/Examples/
+└── MockUsageExamplesTests.swift      [NEEDS: BirchEditorTests target]
+```
+
+**Activities** (in Xcode):
+
+**Step 1: Add Protocol Files to BirchEditor Target**
+
+1. Open `TaskPaper.xcodeproj` in Xcode
+2. In Project Navigator, select `BirchEditor/BirchEditor.swift/BirchEditor/` folder
+3. Right-click → "Add Files to BirchEditor..."
+4. Navigate to `BirchEditor/BirchEditor.swift/BirchEditor/Protocols/`
+5. Select both protocol files:
+   - `StyleSheetProtocol.swift`
+   - `OutlineDocumentProtocol.swift`
+6. In the dialog:
+   - ✓ Check "Copy items if needed" (leave unchecked - files already in place)
+   - ✓ Check "Create groups"
+   - ✓ Check target: "BirchEditor"
+7. Click "Add"
+8. Verify files appear in project with target membership
+
+**Step 2: Add Mock Files to BirchEditorTests Target**
+
+1. In Project Navigator, select `BirchEditor/BirchEditor.swift/BirchEditorTests/` folder
+2. Right-click → "Add Files to BirchEditorTests..."
+3. Navigate to `BirchEditor/BirchEditor.swift/BirchEditorTests/Mocks/`
+4. Select all mock files:
+   - `MockStyleSheet.swift`
+   - `MockOutlineEditor.swift`
+   - `MockOutlineDocument.swift`
+5. In the dialog:
+   - ✓ Check target: "BirchEditorTests"
+6. Click "Add"
+
+**Step 3: Add Example Tests to BirchEditorTests Target**
+
+1. Navigate to `BirchEditor/BirchEditor.swift/BirchEditorTests/Examples/`
+2. Add file:
+   - `MockUsageExamplesTests.swift`
+3. Target: "BirchEditorTests"
+
+**Step 4: Verify Build**
+
+1. Build project (⌘B)
+2. Should compile without "cannot find type" errors
+3. If errors persist, check target membership:
+   - Select each file in Project Navigator
+   - File Inspector (⌘⌥1)
+   - Target Membership section
+   - Verify correct targets are checked
+
+**Step 5: Reapply Protocol Usage** (Git)
+
+Once the files build successfully, reapply the protocol usage code:
+
+```bash
+# The following commits were reverted to fix build:
+# - bfb2af2: P2-T19: Update dependency injection points to use StyleSheetProtocol
+# - 463fc7b: P2-T15/T16: Add OutlineDocumentProtocol and OutlineDocument conformance
+
+# Option 1: Cherry-pick the original commits
+git cherry-pick bfb2af2
+git cherry-pick 463fc7b
+
+# Option 2: Manually reapply changes (if conflicts):
+# See commit diffs for exact changes needed
+```
+
+**Step 6: Run Tests**
+
+1. Product → Test (⌘U)
+2. Verify `MockUsageExamplesTests` pass
+3. All 6 test methods should pass:
+   - `testMockStyleSheet_BasicUsage`
+   - `testMockStyleSheet_KeyPathStubbing`
+   - `testMockOutlineEditor_SerializationStubbing`
+   - `testMockOutlineDocument_BasicUsage`
+   - `testComponentWithMultipleMocks`
+   - `testPerformanceComparison`
+
+**Success Criteria**:
+- ✅ All protocol files in BirchEditor target
+- ✅ All mock files in BirchEditorTests target
+- ✅ Project builds without "cannot find type" errors
+- ✅ Protocol usage code reapplied successfully
+- ✅ All example tests pass
+
+**Documentation**:
+- See `docs/modernisation/Protocol-Testing-Patterns.md` for usage guide
+- See `BirchEditorTests/Examples/MockUsageExamplesTests.swift` for examples
+
+**Time**: 30 minutes
+
+**Next Step**: Once integrated, use protocols for dependency injection in view controllers to enable testability without JavaScriptCore overhead.
+
+---
+
 ### P2-T07: Remove NSWindowTabbedBase Swizzling
 
 **Status**: 📋 Manual execution required
@@ -760,16 +888,17 @@ This is the **most critical and time-consuming** manual task in the entire moder
 | Task | Time | Risk | Priority |
 |------|------|------|----------|
 | P2-T01: Swift 6 Migration | 80-120 hours (2-3 weeks) | 🔴 High | **CRITICAL** |
+| P2-T02: Protocol Integration | 30 minutes | 🟢 Low | High |
 | P2-T07: NSWindowTabbedBase | 1-2 hours | 🟢 Low | Medium |
 | P2-T08: Benchmark NSTextStorage | 2-3 hours | 🟡 Medium | Medium |
 | P2-T09: Remove/Keep NSTextStorage | 1-3 hours | 🟡 Medium | Medium |
 | P2-T10: Accessibility Testing | 2-4 hours | 🟡 Medium | Medium |
 | P2-T23: Async Tests | 4-6 hours | 🟡 Medium | High |
-| **Phase 2 Total** | **90-138 hours** | | |
+| **Phase 2 Total** | **90.5-138.5 hours** | | |
 
 ### Grand Total
 
-**Total Estimated Time**: 96-147 hours (12-18 days of full-time work)
+**Total Estimated Time**: 96.5-147.5 hours (12-18 days of full-time work)
 
 **Critical Path**: P2-T01 (Swift 6 Migration) is the longest and most complex task
 
