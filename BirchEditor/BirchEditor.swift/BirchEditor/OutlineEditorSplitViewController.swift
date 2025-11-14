@@ -32,7 +32,7 @@ open class OutlineEditorSplitViewController: NSSplitViewController, /* TitleLayo
         }
     }
 
-    open var styleSheet: StyleSheetProtocol? {
+    open var styleSheet: StyleSheet? {
         didSet {
             // view.window?.updateTitleLayout(self)
         }
