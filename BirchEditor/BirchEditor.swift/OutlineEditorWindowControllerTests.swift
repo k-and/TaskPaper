@@ -123,7 +123,7 @@ class OutlineEditorWindowControllerTests: XCTestCase {
 
         let expectation = self.expectation(description: "Should Deinit")
         Task { @MainActor in
-            await delay(.milliseconds(0))
+            await delay(0)
             while !allDeinited() {
                 RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 0.1) as Date)
             }
